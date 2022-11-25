@@ -1,0 +1,58 @@
+<div class="content">
+<div class="row">
+    <div class="col">
+      <button type="button" name="buttonImg" (click)="OcultarButtonImg();" class="btn btn-outline-dark">Ocultar columna IMG</button>
+    </div>
+    <div class="col">
+      <button type="button" name="buttonName" (click)="OcultarButtonName();" class="btn btn-outline-dark">Ocultar columna Name</button>
+    </div>
+    <div class="col">
+      <button type="button" name="buttonHp" (click)="OcultarButtonHp();" class="btn btn-outline-dark">Ocultar columna HP</button>
+    </div>
+    <div class="col">
+      <button type="button" name="buttonExp" (click)="OcultarButtonExp();" class="btn btn-outline-dark">Ocultar columna EXP</button>
+    </div>
+    <div class="col">
+      <button type="button" name="buttonAtaque" (click)="OcultarButtonAtaque();" class="btn btn-outline-dark">Ocultar columna Ataque</button>
+    </div>
+    <div class="col">
+      <button type="button" name="buttonDefensa" (click)="OcultarButtonDefensa();" class="btn btn-outline-dark">Ocultar columna Defensa</button>
+    </div>
+    <div class="col">
+      <button name="buttonEspecial" (click)="OcultarButtonEspecial();" class="btn btn-outline-dark">Ocultar columna Especial</button>
+    </div>
+  </div>
+</div>
+<br>
+<div class="content">
+  <table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th *ngIf="isimg==1" scope="col">Imagen</th>
+        <th *ngIf="isname==1" scope="col">Name</th>
+        <th *ngIf="ishp==1" scope="col">Hp</th>
+        <th *ngIf="isexperiencia==1" scope="col">Exp</th>
+        <th *ngIf="isataque==1" scope="col">Ataque</th>
+        <th *ngIf="isdefensa==1" scope="col">Defensa</th>
+        <th *ngIf="isespecial==1" scope="col">Especial</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pokemon of pokemones; let item=index">
+        <th scope="row">{{item+1}}</th>
+        <td *ngIf="isimg==1"> <img src="{{pokemon.img}}" alt="imagen de vitoko" class="card-body-img" width="100"
+            height="100" /></td>
+        <td *ngIf="isname==1">{{pokemon.name}}</td>
+        <td *ngIf="ishp==1">{{pokemon.hp}}</td>
+        <td *ngIf="isexperiencia==1">{{pokemon.experiencia}}</td>
+        <td *ngIf="isataque==1">{{pokemon.ataque}}</td>
+        <td *ngIf="isdefensa==1">{{pokemon.defensa}}</td>
+        <td *ngIf="isespecial==1">{{pokemon.especial}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<router-outlet></router-outlet>
